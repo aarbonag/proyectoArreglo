@@ -16,6 +16,20 @@ public class JFPrincipal extends javax.swing.JFrame {
     public JFPrincipal() {
         initComponents();
     }
+    
+    public boolean buscaValor(int i){
+        boolean encontrado=false;
+        
+        integerSet objIntegerSet = new integerSet();
+        int[] arreglo = objIntegerSet.arreglo();
+        for(int j=0; j<10;j++)
+           if(i==arreglo[j]){
+               encontrado=true;
+               break;
+           }
+        
+        return encontrado;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +74,11 @@ public class JFPrincipal extends javax.swing.JFrame {
         });
 
         jButton3.setText("Validar matriz");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,6 +125,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        jTextField1.setText(" ");
         integerSet objIntegerSet = new integerSet();
         int[] arreglo = objIntegerSet.arreglo();
         for(int i=0; i<10;i++){
@@ -115,12 +135,27 @@ public class JFPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        jTextArea1.setText(" ");
         integerSet objIntegerSet = new integerSet();        
         Boolean[] matriz = objIntegerSet.matriz();
         for(int i=0; i<10;i++){                  
                 jTextArea1.append(Boolean.toString(matriz[i])+", ");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jTextArea1.setText(" ");
+        integerSet objIntegerSet = new integerSet();
+        //int[] arreglo = objIntegerSet.arreglo();
+        Boolean[] matriz = objIntegerSet.matriz();
+        for(int i=0; i<10;i++){            
+            if(buscaValor(i))
+               matriz[i]=true;
+        }
+        for(int i=0; i<10;i++)
+            jTextArea1.append(Boolean.toString(matriz[i])+", ");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
