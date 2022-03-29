@@ -56,4 +56,18 @@ public class integerSet {
             }
         return matrizB;
     }
+    
+    public Boolean[] interseccion(){
+        integerSet objIntegerSet = new integerSet();
+        int[] arregloA = objIntegerSet.arreglo();
+        int[] arregloB = objIntegerSet.arregloB();
+        Boolean[] matrizB = objIntegerSet.matrizB();
+       
+        for(int i=0; i<10;i++)
+            if( arregloA[i]%2==0 && arregloB[i]%2==0){
+                //JOptionPane.showMessageDialog(null, "Arreglo A:"+arreglo[i]+" "+"Arreglo B:"+arregloB[i]);
+                matrizB[i]= true;
+            }
+        return matrizB;
+    }
 }
