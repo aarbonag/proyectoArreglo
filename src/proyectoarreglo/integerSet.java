@@ -10,20 +10,50 @@ package proyectoarreglo;
  */
 public class integerSet {
     int[] numeroEnteros= {1,22,3,44,5,66,7,88,9,100};
+    int[] numeroEnterosB= {1,2,30,4,50,6,7,8,9,10};
     Boolean[] matrizA = new Boolean[10];
+    Boolean[] matrizB = new Boolean[10];
     
     public integerSet(){
          //Arrays.fill(matrizA, Boolean.FALSE);
          for(int i=0; i<10;i++){ 
                 matrizA[i] = false;
+                matrizB[i] = false;
         }
+         
+        /*for(int i=0; i<10;i++){ 
+                matrizB[i] = false;
+        } */
     }
+    
+    
     
     public int[] arreglo(){
         return numeroEnteros;
     }
+    public int[] arregloB(){
+        return numeroEnterosB;
+    }
     
     public Boolean[] matriz(){
         return matrizA;
+    }
+    
+    public Boolean[] matrizB(){
+        return matrizB;
+    }
+    
+    public Boolean[] union(){
+        integerSet objIntegerSet = new integerSet();
+        int[] arregloA = objIntegerSet.arreglo();
+        int[] arregloB = objIntegerSet.arregloB();
+        Boolean[] matrizB = objIntegerSet.matrizB();
+       
+        for(int i=0; i<10;i++)
+            if( arregloA[i]%2==0 || arregloB[i]%2==0){
+                //JOptionPane.showMessageDialog(null, "Arreglo A:"+arreglo[i]+" "+"Arreglo B:"+arregloB[i]);
+                matrizB[i]= true;
+            }
+        return matrizB;
     }
 }
